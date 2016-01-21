@@ -18,8 +18,8 @@ public class MainServer {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         server.setHandler(context);
         context.addServlet(new ServletHolder((Servlet) frontend), "/authform");
-    
-    server.start();
+
+        server.start();
         server.join();
     }
 }
