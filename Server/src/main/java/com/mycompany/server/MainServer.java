@@ -1,6 +1,5 @@
 package com.mycompany.server;
 
-import javax.servlet.Servlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -17,9 +16,9 @@ public class MainServer {
         Server server = new Server(8080);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         server.setHandler(context);
-        context.addServlet(new ServletHolder((Servlet) frontend), "/authform");
-
-        server.start();
+        context.addServlet(new ServletHolder( frontend), "/authform");
+    
+    server.start();
         server.join();
     }
 }
