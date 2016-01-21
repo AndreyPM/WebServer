@@ -9,7 +9,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
  *
  * @author exp
  */
-public class NewClass {
+public class MainServer {
 
     public static void main(String[] args) throws Exception {
         Frontend frontend = new Frontend();
