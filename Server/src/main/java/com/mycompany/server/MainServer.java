@@ -13,12 +13,13 @@ public class MainServer {
     public static void main(String[] args) throws Exception {
         Frontend frontend = new Frontend();
 
-        Server server = new Server(8080);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        context.addServlet(new ServletHolder(frontend), "/mirror");
+
+        Server server = new Server(8080);
         server.setHandler(context);
-        context.addServlet(new ServletHolder( frontend), "/authform");
-    
-    server.start();
+
+        server.start();
         server.join();
     }
 }

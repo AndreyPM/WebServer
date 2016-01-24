@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 class Frontend extends HttpServlet {
-    private String login ="";
+    
     
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        String unn = request.getParameter("key");
         
-        
-    
+        response.getWriter().println(unn);
         
     }
     
