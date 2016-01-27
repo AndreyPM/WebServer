@@ -20,6 +20,9 @@ class Frontend extends HttpServlet {
         String unn = request.getParameter("key");
         
         response.getWriter().println(unn);
+        response.setContentType("text/html;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
+
         
     }
     
