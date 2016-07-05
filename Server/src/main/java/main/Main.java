@@ -4,6 +4,8 @@ package main;
 import Servlets.AddCommentServlet;
 import Servlets.AddFavorite;
 import Servlets.AddPostServlets;
+import Servlets.GetAllPost;
+import Servlets.LikePostServlet;
 import Servlets.RegUserServlets;
 import Test.TestUserBase;
 import java.util.Scanner;
@@ -32,16 +34,20 @@ public class Main {
         AddFavorite favorite = new AddFavorite();
         AddPostServlets addpost = new AddPostServlets();
         AddCommentServlet addCommentServlet = new AddCommentServlet();
+        LikePostServlet like = new LikePostServlet();
+        GetAllPost getAllPost = new GetAllPost();
         
         
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
  
-        
+        //post
         context.addServlet(new ServletHolder(addpost), "/addpost");
         context.addServlet(new ServletHolder(reg), "/reg");
         context.addServlet(new ServletHolder(favorite), "/addfavorite");
         context.addServlet(new ServletHolder(addCommentServlet), "/addcomment");
-        
+        context.addServlet(new ServletHolder(like), "/like");
+        //get
+        context.addServlet(new ServletHolder(getAllPost), "/getAllPost");
         
         Server server = new Server(8080);
         server.setHandler(context);
